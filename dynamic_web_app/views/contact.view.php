@@ -1,8 +1,8 @@
 <?php require  'partials/header.php' ?>
 <?php require 'partials/nav.php'; ?>
 
-<section>
-    <h1><?= "$heading" ?></h1>
+<section class="p-10">
+    <h1 class="text-lg font-semibold"><?= "$heading" ?></h1>
 </section>
 
 <?php require  'partials/footer.php' ?>
