@@ -1,21 +1,18 @@
 <?php
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
 $routes = [
     '/' => 'controllers/index.php',
     '/about' => 'controllers/about.php',
     '/notes' => 'controllers/notes.php',
     '/note' => 'controllers/note.php',
+    '/notes/create' => 'controllers/note-create.php',
     '/contact' => 'controllers/contact.php'
 ];
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 if (array_key_exists($uri, $routes)) {
     require $routes[$uri];
 } else {
-    http_response_code(404);
-
-    echo "Page Not Found";
-
-    die();
+    abort();
 }

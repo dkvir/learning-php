@@ -3,7 +3,7 @@
 
 <section class="p-10">
     <h1 class="text-lg font-semibold"><?= "$heading" ?></h1>
-    <p class="mt-5"><?= $note['body'] ?></p>
+    <p class="mt-5"><?= htmlspecialchars($note['body']) ?></p>
 </section>
 
 <?php require  'partials/footer.php' ?>

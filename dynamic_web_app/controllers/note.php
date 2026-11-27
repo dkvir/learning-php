@@ -5,7 +5,14 @@ $db = new DataBase($config['database']);
 
 $heading = 'Note';
 
-$note = $db->query('select * from notes Where id = :id', ['id' => $_GET['id']])->fetch();
+$note = $db->query('select * from notes where id = :id', [
+    'id' => $_GET['id']
+])->findOrFail();
+
+$currentUserId = 2;
+
+authorize($note['user_id'] == $currentUserId);
+
 require 'views/note.view.php'; 
 
 ?>
